@@ -43,84 +43,6 @@ body {
 //* ========================================================================
    7. Mobile Navigation Menu
    ======================================================================== */
-
-/* Hide the hamburger icon by default on larger screens */
-.hamburger-menu {
-    display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--text-color);
-    z-index: 1001; /* Keeps it on top */
-}
-
-/* This block of styles only applies to screens 768px wide or smaller */
-@media (max-width: 768px) {
-    .main-header nav {
-        justify-content: flex-end; /* This moves the icon to the far right */
-    }
-    
-    /* ... (keep the other mobile styles) ... */
-}
-    
-    /* Reposition the main navigation links off-screen */
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%; /* Start off-screen to the right */
-        width: 70%;
-        height: 100vh;
-        background-color: var(--surface-color);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-        transition: right 0.4s ease-in-out;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-    }
-    
-    /* This class will be added by JavaScript to slide the menu in */
-    .nav-links.active {
-        right: 0;
-    }
-
-    .nav-links a {
-        font-size: 1.2rem;
-    }
-}
-h1, h2, h3 {
-    font-weight: 600;
-}
-
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #4dd0e1;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    position: relative;
-    padding-bottom: 1rem;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background-color: var(--primary-color);
-    border-radius: 2px;
-}
-
 /* ========================================================================
    2. Header & Navigation
    ======================================================================== */
@@ -135,11 +57,12 @@ a:hover {
 
 .main-header nav {
     display: flex;
-    justify-content: center; /* Centered navigation */
+    justify-content: center; /* On desktop, links are centered */
     align-items: center;
     height: 70px;
 }
 
+/* This rule ensures the links are visible by default on desktop */
 .nav-links {
     display: flex;
     list-style: none;
@@ -166,6 +89,60 @@ a:hover {
 
 .nav-links a:hover::after {
     transform: scaleX(1);
+}
+
+/* This rule hides the hamburger icon by default on desktop */
+.hamburger-menu {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    z-index: 1001;
+}
+
+
+/* ========================================================================
+   6. Mobile Navigation & Responsive Design
+   ======================================================================== */
+@media (max-width: 768px) {
+    /* On mobile, align the header content to the right to position the icon */
+    .main-header nav {
+        justify-content: flex-end; 
+    }
+    
+    /* On mobile, hide the main nav links initially */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--surface-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    }
+    
+    /* This class is toggled by JS to show the menu */
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links a { font-size: 1.2rem; }
+    
+    /* On mobile, show the hamburger icon */
+    .hamburger-menu { 
+        display: block; 
+    }
+
+    /* --- (Keep the rest of your mobile styles below this) --- */
+    .hero-name { font-size: 2.5rem; }
+    .section-title { font-size: 2rem; }
+    .about-grid, .education-grid { grid-template-columns: 1fr; text-align: center; }
+    .about-highlights ul { justify-content: center; display: flex; flex-wrap: wrap; }
 }
 
 /* ========================================================================
@@ -505,6 +482,7 @@ section {
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
+
 
 
 
