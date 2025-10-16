@@ -73,6 +73,7 @@ body {
     color: var(--text-color);
     font-weight: 500;
     position: relative;
+   text-decoration: none;
 }
 
 .nav-links a::after {
@@ -482,6 +483,7 @@ section {
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
+
 
 
 
