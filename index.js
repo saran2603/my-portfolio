@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hamburgerIcon && navMenu) {
         const navLinksInMenu = navMenu.querySelectorAll('a');
 
-        // Function to open/close the mobile menu when the icon is clicked
+        // Function to open/close the mobile menu
         hamburgerIcon.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Function to automatically close the menu when a link inside it is clicked
+        // Function to close the menu when a link is clicked
         navLinksInMenu.forEach(link => {
             link.addEventListener('click', () => {
                 if (navMenu.classList.contains('active')) {
