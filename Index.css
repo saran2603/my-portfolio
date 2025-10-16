@@ -40,27 +40,31 @@ body {
    7. Mobile Navigation Menu Styles
    ======================================================================== */
 
-/* Hide the hamburger icon on desktop */
+//* ========================================================================
+   7. Mobile Navigation Menu
+   ======================================================================== */
+
+/* Hide the hamburger icon by default on larger screens */
 .hamburger-menu {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--text-color);
-    z-index: 1001; /* Ensure it's above other elements */
+    z-index: 1001; /* Keeps it on top */
 }
 
-/* Styles for the responsive media query (mobile screens) */
+/* This block of styles only applies to screens 768px wide or smaller */
 @media (max-width: 768px) {
-    /* Show the hamburger icon */
+    /* Show the hamburger icon on mobile */
     .hamburger-menu {
         display: block;
     }
-
-    /* Style the mobile navigation panel */
+    
+    /* Reposition the main navigation links off-screen */
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%; /* Start off-screen */
+        right: -100%; /* Start off-screen to the right */
         width: 70%;
         height: 100vh;
         background-color: var(--surface-color);
@@ -72,16 +76,15 @@ body {
         box-shadow: -5px 0 15px rgba(0,0,0,0.2);
     }
     
-    /* This class will be toggled by JavaScript to show the menu */
+    /* This class will be added by JavaScript to slide the menu in */
     .nav-links.active {
-        right: 0; /* Slide in from the right */
+        right: 0;
     }
 
     .nav-links a {
         font-size: 1.2rem;
     }
 }
-
 h1, h2, h3 {
     font-weight: 600;
 }
@@ -500,5 +503,6 @@ section {
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
+
 
 
