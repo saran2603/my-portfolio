@@ -14,16 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const headerOffset = 70; 
                 const elementPosition = targetSection.getBoundingClientRect().top;
 
-        // --- Mobile Navigation Menu Functionality ---
+  // --- Mobile Navigation Menu Functionality ---
 const hamburgerIcon = document.getElementById('hamburger-icon');
 const navMenu = document.getElementById('nav-menu');
 const navLinksInMenu = navMenu.querySelectorAll('a');
 
-// Function to open/close the mobile menu
+// Function to open/close the mobile menu when the icon is clicked
 hamburgerIcon.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     
-    // Change icon between hamburger and close (X)
+    // Change icon between hamburger (bars) and close (X)
     const icon = hamburgerIcon.querySelector('i');
     if (navMenu.classList.contains('active')) {
         icon.classList.remove('fa-bars');
@@ -34,6 +34,18 @@ hamburgerIcon.addEventListener('click', () => {
     }
 });
 
+// Function to automatically close the menu when a link is clicked
+navLinksInMenu.forEach(link => {
+    link.addEventListener('click', () => {
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            // Reset the icon back to hamburger
+            const icon = hamburgerIcon.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+});
 // Function to close the menu when a link is clicked
 navLinksInMenu.forEach(link => {
     link.addEventListener('click', () => {
@@ -46,3 +58,4 @@ navLinksInMenu.forEach(link => {
         }
     });
 });
+
