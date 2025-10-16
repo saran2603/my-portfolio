@@ -55,10 +55,12 @@ body {
 
 /* This block of styles only applies to screens 768px wide or smaller */
 @media (max-width: 768px) {
-    /* Show the hamburger icon on mobile */
-    .hamburger-menu {
-        display: block;
+    .main-header nav {
+        justify-content: flex-end; /* This moves the icon to the far right */
     }
+    
+    /* ... (keep the other mobile styles) ... */
+}
     
     /* Reposition the main navigation links off-screen */
     .nav-links {
@@ -503,6 +505,7 @@ section {
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
+
 
 
 
